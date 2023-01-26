@@ -1,0 +1,47 @@
+
+gcloud builds submit --tag gcr.io/ProjectID/dash-youtube-example  --project=ProjectID
+
+gcloud run deploy --image gcr.io/ProjectID/dash-youtube-example --platform managed  --project=ProjectID --allow-unauthenticated
+
+#reparar docker??? :v
+wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+
+wsl --terminate docker-desktop
+wsl --terminate docker-desktop-data
+#---------------------------------------
+
+docker rm [NAME] --> borrar la imagen especificada
+docker ps --> ver procesos
+docker stop [NAME] --> detiene el contenedor
+
+
+docker build -t [NAME] . --> construye laimagen del contenedor deacuerdo con el dockerfile
+
+docker run -it --name [container-NAME] -p 8080:8080 [image-NAME] /bin/bash   --> corre la imagen del contenedor en modo iterativo
+
+docker run -d --name [container-NAME] -p 8080:8080 [image-NAME] --> corre la imagen del contenedor en modono iterativo
+
+docker tag [NAME] us-central1-docker.pkg.dev/[proyecto]/[container.register]/[NOMBRE-app]:[VERSION]  --> etiquetado
+
+gcloud auth configure-docker us-central1-docker.pkg.dev --> autenticacion docker-gcloud
+
+docker push us-central1-docker.pkg.dev/[proyecto]/[container.register]/[NOMBRE-app]:[VERSION]  --> push from docker
+
+stop testing
+
+
+
+docker build -t dashboard .   
+docker buildx build --platform linux/amd64 -t dashboard .    #1
+
+
+docker tag dashboard us-central1-docker.pkg.dev/fluent-grammar-361216/dashboard/dash-app:v2 #2
+
+docker push  us-central1-docker.pkg.dev/fluent-grammar-361216/dashboard/dash-app:v2 #3
+
+
+docker run -it --name dashboard -p 8080:8080 dashboard /bin/bash 
+docker run -d --name dashboard -p 8080:8080 dashboard 
+
+
