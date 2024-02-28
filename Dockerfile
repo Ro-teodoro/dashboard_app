@@ -6,10 +6,10 @@ ENV PYTHONUNBUFFERED True
 WORKDIR $APP_HOME
 
 ADD . .
-ENV HOST 34.66.66.156
+ENV HOST aquielhost
 ENV DATABASE dashboards
 ENV USER postgres
-ENV PASSWORD KurT262246
+ENV PASSWORD aquielpswd
 
 ENV esqu Dashboards
 ENV estad suma,promedio,conteo
